@@ -28,6 +28,28 @@ var App = {
       // examine the response from the server request:
       console.log(data);
 
+      //data is an array of objects
+      for (var i = 0; i < data.length; i++) {
+        for (var key in data[i]) {
+          var $username = $('<div class="username"></div>');
+          var $text = $('<div class="text"></div>');
+          $username.text(data[i].username);
+          $text.text(data[i].text);
+          $username.appendTo('#chats');
+          $text.appendTo('#chats');
+        }
+      }
+      //for loop to iterate through array
+        //loop through objects
+          // var $username = ('div>');
+          // $username.text(username);
+
+          //initialize current object
+          //$('username') = object[username]
+          //$text = object[text]
+          //append it
+
+
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
     });
