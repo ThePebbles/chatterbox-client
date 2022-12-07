@@ -15,18 +15,17 @@ var FormView = {
     // Stop the browser from submitting the form
     event.preventDefault();
 
-    console.log(event);
+    var message = {
+      username: window.location.search.slice(10),
+      text: $('#message')[0].value,
+      roomname: 'Lobby'
+    };
+
     // TODO: Currently, this is all handleSubmit does.
     // Make this function actually send a message to the Parse API.
-    // if (FormView.$form.find('input[type=text]').length > 1) {
-    //   setStatus(active);
-    // }
-    //as soon as one character is typed into text box,
-      //set status to true
-    //jquery on submit click
-      //invoke the parse create function
-
-    console.log('click!');
+    if ($('#message')[0].value.length > 1) {
+      Parse.create(message);
+    }
   },
 
   setStatus: function(active) {

@@ -11,15 +11,17 @@ var Parse = {
     $.ajax({
       url: Parse.server,
       type: 'POST',
-      data: { order: '-createdAt' },
+      data: JSON.stringify(message),
       contentType: 'application/json',
-      success: successCB,
-      message: message,
-      error: errorCB || function(error) {
-        console.error('chatterbox: Failed to post messages', error);
+      success: function (data) {
+        console.log('chatterbox: Message sent');
+      },
+      error: function (data) {
+        // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
+        console.error('chatterbox: Failed to send message', data);
       }
     });
-   },
+  },
 
   readAll: function(successCB, errorCB = null) {
     $.ajax({
@@ -32,6 +34,7 @@ var Parse = {
         console.error('chatterbox: Failed to fetch messages', error);
       }
     });
+
   }
 
 };

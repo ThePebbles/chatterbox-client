@@ -28,27 +28,34 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
+      //clean data here
+      var cleaner = (text) => {
+        var newText = text === null ? text : text.replace(/[^0-9a-z]/gi, '');
+        return newText;
+      };
 
       //data is an array of objects
       for (var i = 0; i < data.length; i++) {
         for (var key in data[i]) {
           var $username = $('<div class="username"></div>');
           var $text = $('<div class="text"></div>');
-          $username.text(data[i].username);
-          $text.text(data[i].text);
+          $username.text(cleaner(data[i].username));
+          $text.text(cleaner(data[i].text));
           $username.appendTo('#chats');
           $text.appendTo('#chats');
         }
       }
-      //for loop to iterate through array
-        //loop through objects
-          // var $username = ('div>');
-          // $username.text(username);
 
-          //initialize current object
-          //$('username') = object[username]
-          //$text = object[text]
-          //append it
+      //$><%[]{}#/\
+      //for loop to iterate through array
+      //loop through objects
+      // var $username = ('div>');
+      // $username.text(username);
+
+      //initialize current object
+      //$('username') = object[username]
+      //$text = object[text]
+      //append it
 
 
       // TODO: Use the data to update Messages and Rooms

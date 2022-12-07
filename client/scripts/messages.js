@@ -12,8 +12,6 @@ var Messages = {
   //on button click (submit)
     //need to grab message text, username, and current room
 
-
-
   // TODO: Define methods which allow you to retrieve from,
   // add to, and generally interact with the messages.
 
