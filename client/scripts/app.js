@@ -18,7 +18,7 @@ var App = {
 
     // Fetch initial batch of messages
     App.startSpinner();
-    App.fetch(App.stopSpinner);
+    App.fetch(App.stopSpinner());
 
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
@@ -36,27 +36,15 @@ var App = {
 
       //data is an array of objects
       for (var i = 0; i < data.length; i++) {
+        var $username = $('<div class="username"></div>');
+        var $text = $('<div class="text"></div>');
         for (var key in data[i]) {
-          var $username = $('<div class="username"></div>');
-          var $text = $('<div class="text"></div>');
           $username.text(cleaner(data[i].username));
           $text.text(cleaner(data[i].text));
-          $username.appendTo('#chats');
-          $text.appendTo('#chats');
         }
+        $username.appendTo('#chats');
+        $text.appendTo('#chats');
       }
-
-      //$><%[]{}#/\
-      //for loop to iterate through array
-      //loop through objects
-      // var $username = ('div>');
-      // $username.text(username);
-
-      //initialize current object
-      //$('username') = object[username]
-      //$text = object[text]
-      //append it
-
 
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
@@ -71,5 +59,12 @@ var App = {
   stopSpinner: function() {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
-  }
+  },
+
 };
+
+$('#refresh').on('click', () => {
+  console.log('refresh');
+  App.startSpinner();
+  App.fetch(App.stopSpinner());
+});

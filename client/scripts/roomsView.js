@@ -9,10 +9,14 @@ var RoomsView = {
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
+    //add options for the existing rooms in data
+    //default selection to lobby
+    console.log(App.data);
   },
 
   render: function() {
     // TODO: Render out the list of rooms.
+    //loop through data
   },
 
   renderRoom: function(roomname) {
