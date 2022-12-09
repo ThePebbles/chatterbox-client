@@ -28,23 +28,22 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
+
       //clean data here
       var cleaner = (text) => {
         var newText = text === null ? text : text.replace(/[^0-9a-z]/gi, '');
         return newText;
       };
 
-      //data is an array of objects
       for (var i = 0; i < data.length; i++) {
-        var $username = $('<div class="username"></div>');
-        var $text = $('<div class="text"></div>');
-        for (var key in data[i]) {
-          $username.text(cleaner(data[i].username));
-          $text.text(cleaner(data[i].text));
-        }
-        $username.appendTo('#chats');
-        $text.appendTo('#chats');
+        data[i]['roomname'] = cleaner(data[i]['roomname']);
+        data[i]['text'] = cleaner(data[i]['text']);
+        data[i]['username'] = cleaner(data[i]['username']);
       }
+
+      Rooms.update(data);
+      console.log(Rooms._data);
+
 
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.

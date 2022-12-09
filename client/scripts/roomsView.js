@@ -11,7 +11,8 @@ var RoomsView = {
     // when this view loads.
     //add options for the existing rooms in data
     //default selection to lobby
-    console.log(App.data);
+    RoomsView.$select.on('click', RoomsView.handleChange);
+    RoomsView.$button.on('click', RoomsView.handleClick);
   },
 
   render: function() {
@@ -25,10 +26,12 @@ var RoomsView = {
 
   handleChange: function(event) {
     // TODO: Handle a user selecting a different room.
+    console.log('hi');
   },
 
   handleClick: function(event) {
     // TODO: Handle the user clicking the "Add Room" button.
+    console.log('hi2');
   }
 
 };

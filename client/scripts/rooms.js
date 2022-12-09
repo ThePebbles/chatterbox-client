@@ -5,7 +5,17 @@
 var Rooms = {
 
   // TODO: Define how you want to store the list of rooms
-  _data: null,
+  _data: [],
+
+  update: function (data) {
+    //push data into data structure
+    //looping through data
+    for (var i = 0; i < data.length; i++) {
+      if (Rooms._data.indexOf(data[i]['roomname']) === -1) {
+        Rooms._data.push(data[i]['roomname']);
+      }
+    }
+  }
 
   // TODO: Define methods which allow you to add rooms, update the list,
   // mark a room as selected, etc.
