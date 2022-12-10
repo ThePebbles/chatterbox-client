@@ -15,8 +15,11 @@ var Rooms = {
         Rooms._data.push(data[i]['roomname']);
       }
     }
+    RoomsView.render();
   }
 
+  //PICKING ROOM TO BE SELECTED
+    //DECLARE ROOM SELECTED
   // TODO: Define methods which allow you to add rooms, update the list,
   // mark a room as selected, etc.
 

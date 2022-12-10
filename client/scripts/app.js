@@ -42,7 +42,8 @@ var App = {
       }
 
       Rooms.update(data);
-      console.log(Rooms._data);
+      Messages.update(data);
+      RoomsView.renderRoom();
 
 
       // TODO: Use the data to update Messages and Rooms

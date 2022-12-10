@@ -18,7 +18,7 @@ var FormView = {
     var message = {
       username: window.location.search.slice(10),
       text: $('#message')[0].value,
-      roomname: 'Lobby'
+      roomname: RoomsView.$select.val()
     };
 
     // TODO: Currently, this is all handleSubmit does.

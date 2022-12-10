@@ -8,14 +8,28 @@ var MessagesView = {
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
+    //render
   },
 
-  render: function() {
+  render: function(roomname) {
     // TODO: Render _all_ the messages.
+    for (var i = 0; i < Messages._data.length; i++) {
+      var $chatBubble = $('<div class="chatBubble"></div>');
+      if (Messages._data[i]['room'] === roomname) {
+        var $user = $('<div class="user"></div>');
+        $user.text(Messages._data[i]['user']);
+        var $text = $('<div class="text"></div>');
+        $text.text(Messages._data[i]['text']);
+        $user.appendTo($chatBubble);
+        $text.appendTo($chatBubble);
+      }
+      $chatBubble.appendTo(MessagesView.$chats);
+    }
   },
 
   renderMessage: function(message) {
     // TODO: Render a single message.
+    //printing new message to the top
   },
 
   handleClick: function(event) {
