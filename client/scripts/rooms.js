@@ -8,19 +8,20 @@ var Rooms = {
   _data: [],
 
   update: function (data) {
-    //push data into data structure
-    //looping through data
     for (var i = 0; i < data.length; i++) {
       if (Rooms._data.indexOf(data[i]['roomname']) === -1) {
         Rooms._data.push(data[i]['roomname']);
       }
     }
     RoomsView.render();
-  }
+  },
 
-  //PICKING ROOM TO BE SELECTED
-    //DECLARE ROOM SELECTED
-  // TODO: Define methods which allow you to add rooms, update the list,
-  // mark a room as selected, etc.
+  add: function (roomname) {
+    var $roomname = $('<option value="' + roomname + '">' + roomname + '</option>');
+    $roomname.appendTo(RoomsView.$select);
+    Rooms._data.push(roomname);
+    MessagesView.$chats.empty();
+    RoomsView.$select.val(roomname);
+  }
 
 };

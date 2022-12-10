@@ -64,8 +64,8 @@ var App = {
 };
 
 $('#refresh').on('click', () => {
-  console.log('refresh');
   App.startSpinner();
+  MessagesView.$chats.empty();
   MessagesView.render(RoomsView.$select.val());
   App.stopSpinner();
 });

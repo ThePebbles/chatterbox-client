@@ -12,7 +12,7 @@ var Messages = {
     for (var i = 0; i < data.length; i++) {
       var messageTemplate = {};
       if (Messages._data.indexOf(data[i]['text']) === -1) {
-        messageTemplate['user'] = data[i]['username'];
+        messageTemplate['username'] = data[i]['username'];
         messageTemplate['text'] = data[i]['text'];
         messageTemplate['room'] = data[i]['roomname'];
         Messages._data.push(messageTemplate);

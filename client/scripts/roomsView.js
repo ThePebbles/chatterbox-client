@@ -8,9 +8,6 @@ var RoomsView = {
 
   initialize: function() {
     // TODO: Perform any work which needs to be done
-    // when this view loads.
-    //add options for the existing rooms in data
-    //default selection to lobby
     RoomsView.$select.on('change', RoomsView.handleChange);
     RoomsView.$button.on('click', RoomsView.handleClick);
   },
@@ -24,8 +21,9 @@ var RoomsView = {
 
   renderRoom: function(roomname) {
     // TODO: Render out a single room.
-    //get messages for specific room
     roomname = roomname || RoomsView.$select[0][0].value;
+    var $roomname = $('<option value="' + roomname + '">' + roomname + '</option>');
+    $roomname.appendTo(RoomsView.$select);
     MessagesView.render(roomname);
   },
 
@@ -38,10 +36,6 @@ var RoomsView = {
   handleClick: function(event) {
     // TODO: Handle the user clicking the "Add Room" button
     var newRoom = prompt('Please enter a new room!');
-    var $newRoom = $('<option value="' + newRoom + '">' + newRoom + '</option>');
-    $newRoom.appendTo(RoomsView.$select);
-    MessagesView.$chats.empty();
-    RoomsView.$select.val(newRoom);
+    Rooms.add(newRoom);
   }
-
 };
