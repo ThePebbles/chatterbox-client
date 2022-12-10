@@ -98,6 +98,12 @@ describe('chatterbox', function() {
       Friends.toggleStatus.restore();
     });
 
+    it('should add Friends name to Friends List', function() {
+      App.initialize();
+      Friends.update('Mel Brooks');
+      expect(Friends._data.includes('Mel Brooks')).to.be.true;
+    })
+
     it('should add a room when clicking add', function() {
       sinon.spy(Rooms, 'add');
       var prompt = window.prompt;
