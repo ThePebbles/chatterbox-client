@@ -25,6 +25,7 @@ var FormView = {
     // Make this function actually send a message to the Parse API.
     if ($('#message')[0].value.length > 1) {
       Parse.create(message);
+      MessagesView.renderMessage(message);
     }
   },
 

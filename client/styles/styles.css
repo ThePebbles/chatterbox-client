@@ -1,3 +1,4 @@
+
 body {
     background: #eee;
     text-align: center;
@@ -68,6 +69,19 @@ form input[type=text] {
 .chat .username {
     font-weight: 800;
 }
+.chatBubble {
+    background-color: #D3D3D3;
+    margin: 7px;
+}
+
+.user {
+    font-weight: bold;
+    padding: 3px;
+}
+
+.user:hover {
+    color: blue;
+}
 
 .chat:hover {
     background-color: #ddd;
@@ -87,4 +101,23 @@ form input[type=text] {
     color: #fff;
     background-color: #0090da;
 }
+
+#refresh #rooms{
+    position: inline;
+}
+
+#refresh {
+    float: right;
+    margin: 0px 110px 0px 0px;
+}
+
+#room {
+    margin-right: 0;
+}
+
+#room #refresh #submit:hover {
+    background-color:blue;
+}
+
+
 

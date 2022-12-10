@@ -31,7 +31,7 @@ var App = {
 
       //clean data here
       var cleaner = (text) => {
-        var newText = text === null ? text : text.replace(/[^0-9a-z]/gi, '');
+        var newText = text === null ? text : text.replace(/[^\w\s]/gi, '');
         return newText;
       };
 
@@ -66,5 +66,6 @@ var App = {
 $('#refresh').on('click', () => {
   console.log('refresh');
   App.startSpinner();
-  App.fetch(App.stopSpinner());
+  MessagesView.render(RoomsView.$select.val());
+  App.stopSpinner();
 });
